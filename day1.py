@@ -1,3 +1,6 @@
+from collections import Counter
+
+# Part 1
 with open('input') as file:
     list1, list2 = [], []
     while True:
@@ -14,5 +17,14 @@ with open('input') as file:
     for i in range(len(list1)):
         diff += abs(list1[i] - list2[i])
     print(diff)
+
+    # Part 2
+
+    right_list_word_count = Counter(list2)
+    res = []
+    for num in list1:
+        res.append(num * right_list_word_count[num])
+    
+    print("sum: ", sum(res))
 
 
